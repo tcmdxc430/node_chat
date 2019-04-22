@@ -1,11 +1,9 @@
-/**
- * Created by baymax on 16/8/2.
- */
-var http = require("http");
-var fs = require("fs");
-var path = require("path");
-var mime = require("mime");
-var cache = {};
+
+var http = require("http");// 服务器与客户端通信模块
+var fs = require("fs");// 文件系统
+var path = require("path");// 系统路径
+var mime = require("mime"); // 根据文件扩展名得出对应文件mime类型
+var cache = {};// 初始化缓存
 
 //所请求的文件不存在时发送404错误
 function send404(response) {
