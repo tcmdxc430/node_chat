@@ -22,7 +22,7 @@ function sendFile(response, filePath, fileContents) {
     response.end(fileContents);
 }
 
-//提供静态文件服务
+//提供静态文件服务 如果缓存中有在魂村中读取  如果没有才去文件中查找
 function serveStatic(response, cache, absPath) {
     if(cache[absPath]){
         sendFile(response, absPath, cache[absPath]);
@@ -39,6 +39,7 @@ function serveStatic(response, cache, absPath) {
                     }
                 })
             }else{
+                // 如果硬盘中也不存在
                 send404(response);
             }
         })
@@ -49,6 +50,7 @@ function serveStatic(response, cache, absPath) {
 var server = http.createServer(function (request, response) {
     var filePath = false;
     if(request.url == '/'){
+        // 定义默认返回的html
         filePath = 'public/index.html';
     }else{
         filePath = 'public' + request.url;
@@ -56,7 +58,7 @@ var server = http.createServer(function (request, response) {
     var absPath = './' + filePath;
     serveStatic(response, cache, absPath);
 });
-
+// 默认用3000端口启动服务器
 server.listen(3000,function () {
     console.log('server on localhost:3000');
 });
