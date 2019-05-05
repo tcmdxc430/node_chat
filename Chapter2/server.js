@@ -64,4 +64,5 @@ server.listen(3000,function () {
 });
 
 var chatServer = require('./lib/chat_server');//加载自定义模块
-chatServer.listen(server);
+// 启动Socket.IO服务器，给它提供一个已经定义好的HTTP服务器，这样它就能跟HTTP服务器共享同一个TCP/IP端口
+chatServer.listen(server)
