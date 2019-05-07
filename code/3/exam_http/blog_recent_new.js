@@ -3,7 +3,7 @@
 var http = require('http')
 var fs = require('fs')
 
-var server = http.createServer(fucntion(req,res) {
+var server = http.createServer(function(req,res) {
     //控制权转交给了getTitles
     getTitles(res)
 }).listen(8000,'127.0.0.1')
@@ -25,7 +25,7 @@ function getTemplate(titles,res){
         }else{
             formatHtml(titles,data.toString(),res)
         }
-    }
+    })
 }
 // formatHtml得到标题和模板，渲染一个响应给客户端
 function formatHtml(titles,tmpl,res) {
