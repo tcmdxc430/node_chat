@@ -71,5 +71,5 @@ function next(err, result) {
         currentTask(result);    //执行当前任务
     }
 };
-
+// 开始任务的串行化执行
 next();

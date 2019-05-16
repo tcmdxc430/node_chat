@@ -1,4 +1,5 @@
 function asyncFunction(callback) {
+  // 导致console延迟执行
   setTimeout(function() {
     callback()
   }, 200);
