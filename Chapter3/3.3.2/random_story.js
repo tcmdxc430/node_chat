@@ -1,6 +1,4 @@
-/**
- * Created by baymax on 16/8/5.
- */
+// 串行执行
 var fs = require('fs');
 var request = require('request');
 var htmlparser = require('htmlparser');
