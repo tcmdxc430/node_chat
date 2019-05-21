@@ -16,4 +16,4 @@ var server = http.createServer(function(req, res){
       });
       break;
   }
-});
+}).listen(3001, '127.0.0.1');

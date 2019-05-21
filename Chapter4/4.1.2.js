@@ -5,6 +5,6 @@ var http = require('http');
 
 var server = http.createServer(function (req, res) {
     console.log(req.url);
-    res.write('hello node');
-    res.end();
+    
+    res.end('hhah');
 }).listen(3001, '127.0.0.1');
