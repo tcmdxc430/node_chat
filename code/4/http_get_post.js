@@ -20,7 +20,7 @@ var server = http.createServer(function(req, res){
   }
 });
 
-server.listen(3001);
+server.listen(3000);
 
 function show(res) {
   var html = `<html>
