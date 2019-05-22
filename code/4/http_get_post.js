@@ -50,13 +50,16 @@ function add(req,res) {
   var body = ''
   req.setEncoding('utf8')
   req.on('data',function(chunk) {
+    console.log(chunk)
     body+=chunk
+    console.log(body)
   })
   req.on('end',function() {
+    // 将item=aaa解析为{ item: 'aaa' }
     var obj = qs.parse(body)
-    
+    console.log(obj)
     items.push(obj.item)
-    console.log(items)
+    
     show(res)
   })
 }
