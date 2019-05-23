@@ -50,7 +50,11 @@ function upload(req,res) {
   // form.on('end',function() {
   //   res.end('up ok')
   // })
-
+  // 的progress事件能给出收到的字节数，以及期望收到的字节数
+  form.on('progress',function(bytesReceived,bytesExpected){
+    var precent = Math.floor(bytesReceived/bytesExpected*100)
+    console.log(precent)
+  })
   // 将各个监听整合
   form.parse(req,function(err,fields,files) {
     console.log(fields)
