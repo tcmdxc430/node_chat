@@ -1,14 +1,19 @@
+/**
+ * 工作记录存储的服务启动
+ */
 var http = require('http');
 var work = require('./lib/timetrack');
 var mysql = require('mysql');
-
+// 连接MySQL 
 var db = mysql.createConnection({
-  host:     '127.0.0.1',
-  user:     'myuser',
-  password: 'mypassword',
-  database: 'timetrack'
+  host:     'localhost',
+  user:     'root',
+  password: 'root',
+  database: 'timetrack',
+  // port: '3308'
 });
-
+// db.connect()
+// HTTP请求路由
 var server = http.createServer(function(req, res) {
   switch (req.method) {
     case 'POST': 
@@ -35,7 +40,7 @@ var server = http.createServer(function(req, res) {
       break;
   }
 });
-
+// 这段代码创建了一个数据库表work
 db.query(
   "CREATE TABLE IF NOT EXISTS work (" 
   + "id INT(10) NOT NULL AUTO_INCREMENT, " 
