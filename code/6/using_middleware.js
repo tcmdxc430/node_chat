@@ -1,3 +1,6 @@
+/**
+ * 正确的中间件执行顺序演示
+ */
 var connect = require('connect');
 
 function logger(req, res, next) {
