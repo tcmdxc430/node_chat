@@ -15,6 +15,7 @@ exports.parseReceivedData = function(req, cb) {
   req.on('data', function(chunk){ body += chunk });
   req.on('end', function() {
     var data = qs.parse(body);
+    console.log(data);
     cb(data);
   });
 };
@@ -29,7 +30,7 @@ exports.actionForm = function(id, path, label) {
 // 添加
 exports.add = function(db, req, res) {
   // 解析HTTP POST数据
-  exports.parseReceivedData(req, function(work) { 
+  exports.parseReceivedData(req, function(work) {
     // 添加工作记录的SQL 
     db.query(
       "INSERT INTO work (hours, date, description) " + 
@@ -85,7 +86,7 @@ exports.show = function(db, res, showArchived) {
   var archiveValue = (showArchived) ? 1 : 0;
   db.query(
     query,
-    [archiveValue], 
+    [archiveValue], // 替换？
     function(err, rows) {
       if (err) throw err;
       html = (showArchived)
