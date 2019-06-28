@@ -6,6 +6,7 @@ function badMiddleware(req, res, next) {
 
 function errorHandler() {
   var env = process.env.NODE_ENV || 'development';
+  // 错误处理中间件函数必须接受四个参数：err、req、res和next，如下面的代码清单所示，而常规的中间件只有三个参数：req、res和next。
   return function(err, req, res, next) {
     res.statusCode = 500;
     switch (env) {
