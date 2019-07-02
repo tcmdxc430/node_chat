@@ -1,3 +1,6 @@
+/**
+ * 解析cookie
+ */
 // curl http://localhost:3000/ -H "Cookie: name=s:seck.M/F9kDQ1K5phAxpn3l0I+W9HxLymHWUdfrf5vevvMQU"
 // curl http://localhost:3000/ --head
 var connect = require('connect')
