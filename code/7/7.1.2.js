@@ -7,7 +7,6 @@
 var connect = require('connect')
 var bodyParser = require('body-parser');
 var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
 
 var app = connect()
 // 解析json输入时
