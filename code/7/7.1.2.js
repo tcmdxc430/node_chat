@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
   }));
+// 解析文件上传时
 app.use(multipart());
 
 app.use(function(req,res) {
